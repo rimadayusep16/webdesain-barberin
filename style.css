@@ -11,12 +11,12 @@
 
 :root {
   /* Palet Warna Modern Minimalis */
-  --bg-light: #fcfcfc;
+  --bg-light: rgb(252, 252, 252);
   --surface-white: #ffffff;
   --text-dark: #111827;
   --text-muted: rgb(107, 114, 128);
-  --border-color: #f3f4f6;
-  --accent-color: #111827; /* Hitam elegan */
+  --border-color: hsl(220, 14%, 96%);
+  --accent-color: rgb(17, 24, 39); /* Hitam elegan */
   --accent-gold: rgb(205, 163, 101); /* Emas pudar */
 
   --radius-sm: 8px;
@@ -141,7 +141,6 @@ h3[style] {
   color: var(--text-muted);
   margin-bottom: 40px;
 }
-
 .btn {
   display: inline-block;
   padding: 14px 32px;
@@ -153,11 +152,23 @@ h3[style] {
   transition: all 0.3s ease;
   border: 1px solid transparent;
 }
+.secondary {
+  background-color: var(--accent-gold);
+  margin-left: 5px;
+  height: 54.93px;
+  width: 150.66px;
+}
 
 .btn:hover {
   background-color: var(--surface-white);
   color: var(--accent-color);
   border: 1px solid var(--accent-color);
+  box-shadow: var(--shadow-sm);
+}
+.secondary:hover {
+  background-color: var(--surface-white);
+  color: var(--accent-color);
+  border: 1px solid var(--accent-gold);
   box-shadow: var(--shadow-sm);
 }
 
@@ -196,22 +207,23 @@ h3[style] {
   flex: 1;
   display: flex;
   justify-content: flex-end;
-  align-items: center;
+  align-items: flex-start;
+  height: 441px;
 }
 
 .food-circle img {
   width: 100%;
-  max-width: 450px;
-  height: auto;
+  min-width: 452px;
+  height: 100%;
+  max-height: 441px;
   aspect-ratio: 4/5;
   object-fit: cover;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
 }
 
-/* =========================================
-   TENTANG
-   ========================================= */
+/* BAGIAN TENTANG */
+
 .about-section {
   padding: 100px 5%;
   background-color: rgba(107, 114, 128, 0.1);
@@ -233,30 +245,51 @@ h3[style] {
   gap: 60px;
   max-width: 1100px;
   margin: 0 auto;
+  margin-bottom: 40px;
 }
 
 .about-image img {
+  background-color: var(--accent-gold);
   width: 100%;
   max-width: 400px;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
 }
 
+.second img {
+  height: 437px;
+}
+
+.sejarah h1 {
+  padding: 5px;
+  text-align: center;
+  max-width: 300px;
+  background-color: var(--accent-gold);
+}
+
+.about-container .visi {
+  background-color: rgba(205, 163, 101, 1);
+  padding: 30px 20px;
+  border-radius: 10px;
+  max-width: 60%;
+}
+
 .about-text h1 {
   font-size: 2.2rem;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   text-transform: none;
   letter-spacing: -0.03em;
+  color: var(--text-dark);
 }
 
 .about-text p {
   font-size: 1.05rem;
-  color: var(--text-muted);
+  color: var(--text-dark);
+  text-align: justify;
 }
 
-/* =========================================
-   SERVICE & TEAM
-   ========================================= */
+/* SERVICE & TEAM */
+
 #team {
   padding: 100px 5%;
   background-color: rgba(107, 114, 128, 0.1);
@@ -269,7 +302,12 @@ h3[style] {
 .menu-title {
   text-align: center;
   font-size: 2.5rem;
-  margin-bottom: 60px;
+}
+
+.menu-section .deskripsi {
+  color: var(--text-dark);
+  justify-content: center;
+  text-align: center;
 }
 
 /* Service Grid */
@@ -279,6 +317,35 @@ h3[style] {
   justify-content: center;
   gap: 24px;
 }
+.menu-card {
+  max-width: 200px;
+  color: var(--accent-color);
+  max-height: 400px;
+}
+.menu-card .price {
+  text-align: left;
+  font-size: small;
+  margin-bottom: 2px;
+}
+.menu-card .judul {
+  text-align: justify;
+  font-size: larger;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+.menu-card .deskripsi {
+  text-align: justify;
+  font-size: x-small;
+  margin: 0%;
+  color: var(--accent-color);
+  mask-image: linear-gradient(to bottom, black 80%, transparent);
+  height: 50px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+span {
+  color: var(--accent-gold);
+}
 
 .menu-card img {
   width: 200px;
@@ -286,28 +353,58 @@ h3[style] {
   object-fit: cover;
   border-radius: var(--radius-sm);
   box-shadow: var(--shadow-sm);
-  filter: grayscale(100%) opacity(80%);
+  /* filter: grayscale(100%) opacity(80%); */
   transition: all 0.4s ease;
   cursor: pointer;
 }
 
-.menu-card img:hover {
-  filter: grayscale(0%) opacity(100%);
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-md);
+.filter-buttons {
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 5px;
 }
 
-.menu-card p {
+.filter-buttons button {
+  color: var(--bg-light);
+  width: 160px;
+  background-color: rgba(205, 163, 101, 0.8);
+  padding: 6px 32px;
+  text-decoration: none;
+  border: var(--accent-gold) solid 1px;
+  border-radius: 999px;
+  margin-bottom: 5px;
+}
+
+.filter-buttons .all {
+  background-color: rgba(17, 24, 39, 0.8);
+  text-decoration: none;
+  border: var(--accent-color) solid 1px;
+  border-radius: 999px;
+  margin-bottom: 5px;
+}
+
+.filter-buttons button:hover {
+  color: var(--bg-light);
+  background-color: var(--accent-gold);
+  border-color: var(--accent-gold);
+}
+.filter-buttons .all:hover {
+  color: var(--bg-light);
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+/* .menu-card p {
   margin-top: 0px;
   font-size: 1.3rem;
   color: var(--text-dark);
   text-align: center;
-}
+} */
 
-.menu-card p:hover {
+/* .menu-card p:hover {
   color: var(--accent-gold);
   font-weight: 500;
-}
+} */
 
 /* Team Grid */
 .cards {
