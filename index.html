@@ -4,8 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Barberin - Premium Barbershop Experience</title>
+    <link rel="icon" href="gambar/1 rem.jpeg">
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="jajal.css">
   </head>
+
   <body>
     <header class="navbar">
       <div class="logo">
@@ -32,12 +35,7 @@
           hari.
         </p>
         <a href="#tentang" class="btn">Kenali Kami</a>
-
-        <div class="social">
-          <span><a href="">fb</a></span>
-          <span><a href="">ig</a></span>
-          <span><a href="">adr</a></span>
-        </div>
+        <button onclick="kirimWA()" class="btn secondary">Reservasi</button>
       </div>
 
       <div class="image-area">
@@ -53,52 +51,57 @@
       </div>
       <div class="about-container">
         <div class="about-image">
-          <img src="gambar/tentang.jpg" alt="Tentang Barberin" />
+          <img src="gambar/6.jpg" alt="Tentang Barberin" />
         </div>
-        <div class="about-text">
-          <h1>Sejarah Kami</h1>
+        <div class="about-text sejarah">
+          <h1 >Sejarah Kami</h1>
           <p>
             Berdiri sejak tahun 2023, Barberin lahir dari dedikasi untuk
-            memberikan pelayanan cukur rambut pria kelas atas. Kami percaya
+            memberikan pelayanan cukur rambut segala usia kelas atas. Kami percaya
             bahwa setiap potongan rambut adalah seni, dan setiap pelanggan
             berhak mendapatkan penampilan terbaik yang sesuai dengan karakter
             mereka.
           </p>
         </div>
       </div>
+      <div class="about-container">
+        <div class="about-text visi">
+          <h1>Visi</h1>
+          <p>
+            Menjadi barbershop terpercaya yang memberikan layanan potong rambut berkualitas, modern, dan sesuai tren, serta menghadirkan pengalaman terbaik bagi setiap pelanggan.
+          </p>
+          <h1>Misi</h1>
+          <p>
+            memberikan pelayanan profesional dengan hasil potongan rambut yang rapi dan sesuai dengan keinginan pelanggan, serta selalu mengikuti perkembangan tren gaya rambut terkini. Barberin juga berkomitmen menggunakan produk dan alat yang berkualitas serta higienis, menciptakan suasana barbershop yang nyaman dan ramah, serta membangun hubungan baik untuk menjaga kepercayaan pelanggan.
+          </p>
+        </div>
+        <div class="about-image second">
+          <img src="gambar/tentang.jpg" alt="Tentang Barberin" />
+        </div>
+      </div>
+     
     </section>
 
     <section id="service" class="menu-section">
-      <h1 class="menu-title">Layanan Kami</h1>
-      <div class="menu-cards">
-        <div class="menu-card">
-          <img src="gambar/haircut.jpg" alt="Haircut" />
-          <p>Haircut <br> 50K - 100K
-        </p>
-        </div>
-        <div class="menu-card">
-          <img src="gambar/shaving.jpg" width="200px" height="250px" alt="Shaving" />
-          <p>Shaving
-                <br> 30K - 80K
-          </p>
-        </div>
-        <div class="menu-card">
-          <img src="gambar/spa.jpg" alt="Hair Spa" />
-            <p>Hair Spa <br> 100K - 200K    </p>
-        </div>
-        <div class="menu-card">
-          <img src="gambar/color.jpg" alt="Coloring" />
-            <p>Coloring <br> 50K - 150K</p>
-        </div>
-        <div class="menu-card">
-          <img src="gambar/kids.jpg" alt="Kids Haircut" />
-            <p>Kids Haircut <br> 20K - 50K</p>
-          
-        </div>
+      <h1 class="menu-title">Layanan Barber<span>in</span></h1>
+      <p class="deskripsi">
+        Kami bantu kamu tampil lebih percaya diri lewat gaya rambut yang
+        benar-benar cocok sama karakter kamu. Setiap potongan disesuaikan biar
+        kelihatan pas, enak dilihat, dan bikin kamu makin pede di setiap
+        aktivitas.
+      </p>
+      <div class="filter-buttons">
+        <button data-filter="all" class="all">All</button><br>
+        <button data-filter="laki">Laki-laki</button>
+        <button data-filter="perempuan">Perempuan</button>
+        <button data-filter="anak">Anak-anak</button>
+      </div>
+      <div class="menu-cards"></div>
       </div>
     </section>
+   
 
-    <section id="team" class="menu-section">
+      <section id="team" class="menu-section">
       <h1 class="menu-title">Tim Profesional <span>Kami</span></h1>
       <div class="cards">
         <div class="card">
@@ -142,6 +145,30 @@
     <section id="testimoni" class="testimoni-section">
       <h1 class="menu-title">Galeri Barber<span>in</span></h1>
 
+<div class="btn-container">
+  <button id="btnMenu">Kenali Postur Wajah</button>
+</div>
+<div id="overlay" class="overlay"></div>
+
+<div id="popupMenu" class="menus">
+  <ul>
+    <li data-face="oval">Oval</li>
+    <li data-face="bulat">Bulat</li>
+    <li data-face="kotak">Kotak</li>
+    <li data-face="panjang">Panjang</li>
+  </ul>
+
+  <div id="result"></div>
+  <img id="hairImage">
+
+</div>
+
+<div id="popupResult" class="menus">
+  <h3 id="resultText"></h3>
+  <div id="resultImages" class="image-grid"></div>
+  <button onclick="closeResult()">Tutup</button>
+</div>
+
       <div class="testimoni-container">
         <div class="testimoni-card">
           <img src="gambar/testi/1.jpeg" alt="Galeri 1" />
@@ -162,7 +189,7 @@
           <img src="gambar/testi/7.jpeg" alt="Galeri 6" />
         </div>
         <div class="testimoni-card">
-          <img src="gambar/testi/8.jpg" alt="Galeri 7" />
+          <img src="gambar/testi/8.jpeg" alt="Galeri 7" />
         </div>
         <div class="testimoni-card">
           <img src="gambar/testi/9.jpg" alt="Galeri 8" />
@@ -183,15 +210,15 @@
 
         <div class="kontak-grid">
           <div class="kontak-item">
-            <h4>📍 Lokasi</h4>
+            <h4> Lokasi</h4>
             <p>Jl. Suryat No. 16<br />Kota Blitar</p>
           </div>
           <div class="kontak-item">
-            <h4>📞 Reservasi (WA)</h4>
+            <h4> Reservasi (WA)</h4>
             <p>0852-6476-2265</p>
           </div>
           <div class="kontak-item">
-            <h4>⏰ Jam Operasional</h4>
+            <h4> Jam Operasional</h4>
             <p>Setiap Hari<br />10.00 - 22.00 WIB</p>
           </div>
           <div class="kontak-item">
@@ -218,5 +245,8 @@
         Kebijakan Privasi | Syarat & Ketentuan
       </p>
     </footer>
+    <script src="script.js"></script> 
+    <script src="js/jasjus.js" defer></script>
   </body>
 </html>
+>
